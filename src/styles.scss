@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+ñ/* You can add global styles to this file, and also import other style files */
+
+
+:root{
+    // Colores
+    --color-primary: blue;
+    --color-primary-background: lightblue;
+    --color-secondary: rgb(119, 255, 0);
+    --color-background: white;
+    --color-text: rgb(30, 0, 0);
+
+}
+
+
+body{
+    color: var(--color-text);
+}

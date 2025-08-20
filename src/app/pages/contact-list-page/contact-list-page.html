@@ -1,0 +1,16 @@
+<p>contact-list-page works!</p>
+<a routerLink="/login">Log in</a>
+
+@for (contacto of contactos; track $index) {
+    <p>Contacto Nº {{$index +1}} {{contacto}}</p>
+} @empty {
+    <p>No hay contactos</p>
+}
+<div [class.importante]="logueado === true">
+    <p>Sesión</p>
+    @if(logueado){
+        <button (click)="desloguear()">Cerrar sesión</button>
+    } @else {
+        <button (click)="loguear()">Iniciar sesión</button>
+    }
+</div>
