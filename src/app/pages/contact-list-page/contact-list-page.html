@@ -2,7 +2,7 @@
 <a routerLink="/login">Log in</a>
 
 @for (contacto of contactos; track $index) {
-    <p>Contacto Nº {{$index +1}} {{contacto}}</p>
+    <app-contact-list-item [contacto]="contacto" [index]="$index" />
 } @empty {
     <p>No hay contactos</p>
 }

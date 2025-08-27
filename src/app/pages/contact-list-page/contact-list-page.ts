@@ -1,15 +1,29 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ContactListItem } from '../../components/contact-list-item/contact-list-item';
+import { Contact } from '../../interfaces/contacto';
 
 @Component({
   selector: 'app-contact-list-page',
-  imports: [RouterModule],
+  imports: [RouterModule,ContactListItem],
   templateUrl: './contact-list-page.html',
   styleUrl: './contact-list-page.scss'
 })
 export class ContactListPage {
 
-  contactos = ["Gonzalo", "Lucho","Nico", "Mateo"]
+  contactos:Contact[] = [{
+    firstName: 'Gonzalo',
+    lastName: 'Bechara',
+    address: 'San Lorenzo',
+    email: 'gbechara@austral.edu.ar',
+    number: '123456',
+    company: 'Austral',
+    id: 0,
+    isFavorite: false,
+    description: 'Hola',
+    image: ''
+  }
+  ]
   logueado = true;
 
   desloguear(){
