@@ -59,14 +59,14 @@ button{
 :root{
     // Colores
     --color-primary: blue;
-    --color-primary-background: lightblue;
+    --color-primary-background: #00acee;
     --color-secondary: rgb(119, 255, 0);
-    --color-background: white;
+    --color-background: rgb(255, 255, 255);
     --color-text: rgb(30, 0, 0);
 
 }
 
 
 body{
-    color: var(--color-text);
+    background-color: var(--color-background);
 }
