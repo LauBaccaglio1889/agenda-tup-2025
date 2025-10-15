@@ -1,68 +1,114 @@
-.login-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.login{
-    display: flex;
-    align-items: center;
-    margin-top: 100px;
-    height: 400px;
-    width: 400px;
-    border: 1px solid black;
-    justify-content: center;
-    border-radius: 40px;
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Roboto', Arial, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(#36d1dc,#5b86e5);
+
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    gap:5px;
-    padding: 10px;
-    width: 300px;
-    height:280px;
-   
-}
-h2{
-    text-align: center;
-    font-size: 35px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+
+
+.login-card {
+  background: #fff;
+  padding: 40px 38px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(32, 33, 36, 0.1);
+  width: 360px;
+  box-sizing: border-box;
 }
 
-label{
-    color: rgb(255, 253, 253);
+/* Título */
+.login-card h2 {
+  font-weight: 400;
+  font-size: 28px;
+  color: #202124;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-input{
-    height: 27px;
-    border:2px solid #657786;
-    transition: border-color 0.5s ease;
+/* Grupo de label + input */
+.form-group {
+  margin-bottom: 20px;
 }
 
-input:hover{
-    border: 2px solid #00acee;
+/* Label */
+.form-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  color: #3c4043;
+  margin-bottom: 6px;
 }
 
-button{
-    width: 300px;
-    height: 33px;
-    border-radius: 15px;
-    margin-top: 10px;
-    font-family: "Roboto";
-    background-color: white;
-    border: 1px solid var(--color-primary-background);
-    transition: background-color 0.5s ease;
+/* Inputs */
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1.8px solid #dadce0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover{
-    background-color:rgb(242, 249, 255)
+.form-group input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.4);
+  outline: none;
 }
 
-p{
-    text-align: center;
+/* Botón */
+button {
+  width: 100%;
+  background-color: #1a73e8;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-a{
-    color: var(--color-primary-background);
+
+button:disabled {
+  background-color: #a8c0f4;
+  cursor: not-allowed;
 }
+
+button:not(:disabled):hover {
+  background-color: #155ab6;
+}
+
+/* Mensajes de error */
+p.error {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #141111;
+}
+
+/* Pie con link */
+.signup-link {
+  margin-top: 24px;
+  font-size: 14px;
+  text-align: center;
+  color: #5f6368;
+}
+
+.signup-link a {
+  color: #1a73e8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
 

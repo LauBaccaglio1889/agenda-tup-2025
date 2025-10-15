@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Contact, NewContact } from '../interfaces/contacto';
 import { Spinner } from "../spinner/spinner";
 
+
+
+
 @Component({
   selector: 'app-new-edit-contact',
   imports: [FormsModule, Spinner],
@@ -17,55 +20,57 @@ import { Spinner } from "../spinner/spinner";
   router = inject(Router)
   errorEnBack = false;
   idContacto = input<string>();
-  contactoBack:Contact | undefined = undefined;
+  ContactoBack:Contact | undefined = undefined;
   form = viewChild<NgForm>("newContactForm");
   solicitudABackEnCurso = false;
-  
+
   async ngOnInit() {
-    if(this.idContacto()){
-      const contacto:Contact|null = await this.contactsService.getContactById(this.idContacto()!);
-      if(contacto){
-        this.contactoBack = contacto;
-        this.form()?.setValue({
-          address: contacto.address,
-          company: contacto.company,
-          email: contacto.email,
-          firstName:contacto.firstName,
-          image:contacto.image,
-          isFavourite:contacto.isFavorite,
-          lastName: contacto.lastName,
-          number: contacto.number
-        })
-      }
+    if(this.idContacto())
+   {
+    const contacto:Contact|null = await this.contactsService.getContactById(this.idContacto()!);
+    if(contacto){
+      this.ContactoBack = contacto;
+      this.form()?.setValue({
+        address: contacto.address,
+        company:contacto.company,
+        email:contacto.email,
+        firstName:contacto.firstName,
+        image:contacto.image,
+        isFavourite:contacto.isFavorite,
+        lastName:contacto.lastName,
+        number:contacto.number
+      })
     }
   }
+ }
 
-  async handleFormSubmission(form:NgForm){
-    this.errorEnBack = false;
-    const nuevoContacto: NewContact ={
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      address: form.value.address,
-      email: form.value.email,
-      image: form.value.image,
-      number: form.value.number,
-      company: form.value.company,
-      isFavorite: form.value.isFavorite
-    }
 
-    this.solicitudABackEnCurso = true;
-    let res;
-    if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto,id:this.contactoBack!.id});
-    } else {
-      res = await this.contactsService.createContact(nuevoContacto);
-    }
-    this.solicitudABackEnCurso = false;
+async  handleFormSubmission(form:NgForm){
+  this.errorEnBack = false;
+  const nuevoContacto: NewContact ={
+    firstName: form.value.firstName,
+    lastName: form.value.lastName,
+    address: form.value.address,
+    email: form.value.email,
+    image: form.value.image,
+    number: form.value.number,
+    company: form.value.company,
+    isFavorite: form.value.isFavorite
+  }
+  
+  this.solicitudABackEnCurso = true;
+  let res;
+  if(this.idContacto()){
+    res = await  this.contactsService.editContact({...nuevoContacto,id:this.ContactoBack!.id});
+  } else{
+    res = await this.contactsService.createContact(nuevoContacto);
+  }
+  this.solicitudABackEnCurso = false;
 
-    if(!res) {
-      this.errorEnBack = true;
-      return
-    };
-    this.router.navigate(["/contacts",res.id]);
+  if(!res){
+    this.errorEnBack = true;
+    return
+  };
+  this.router.navigate(["/contacts",res.id]);
   }
 }

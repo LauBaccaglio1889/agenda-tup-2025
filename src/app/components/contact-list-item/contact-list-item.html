@@ -1,7 +1,9 @@
-<p>Contacto Nº {{index() +1}} {{contacto().firstName}}
+<section class="contact-item">
+<p>Contacto Nº {{index() +1}} </p>{{contacto().firstName}}
     @if(contacto().isFavorite){
         ⭐
     }
     <a [routerLink]="['/contacts',contacto().id,'edit']">Editar</a>
     <button (click)="showDeleteModal()">Borrar</button>
-</p>
+
+</section>

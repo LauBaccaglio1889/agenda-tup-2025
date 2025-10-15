@@ -1,5 +1,6 @@
 nav{
     background-color:#444746;
+    
 }
 
 a{
@@ -13,4 +14,39 @@ a{
 section{
     display: flex;
     height: 100vh;
+    
+}
+nav {
+  display: flex;
+  flex-direction: column; /* apila en columna */
+  gap: 12px;              /* espacio entre elementos */
+  width: 150px;           /* ancho fijo opcional */
+  padding: 10px;
+  background-color: #b0adad; /* fondo claro para destacar */
+  
+}
+
+nav a,
+nav button {
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+nav a.active {
+  background-color: #446cb6;
+  color: rgb(255, 255, 255);
+  border-color: #1e3c72;
+}
+
+nav a:hover,
+nav button:hover {
+  background-color: #8ec4ec;
 }

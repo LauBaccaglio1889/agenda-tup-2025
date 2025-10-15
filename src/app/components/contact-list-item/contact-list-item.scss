@@ -1,3 +1,36 @@
-p{
-    color: var(--color-primary-background);
+.contact-item{
+    
+    display: flex;
+  justify-content: space-between; /* para separar texto y botón */
+  align-items: center; 
+  padding: 12px 16px;
+  gap: 10px; 
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer; /* da la sensación de que es clickeable */
+  width: 450px;
+  
 }
+.contact-item:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+}
+
+
+p{
+    margin-right: 5px;
+   margin-right: 10px; /* más espacio al texto */
+  margin: 0; /* para eliminar márgenes no deseados */
+  flex-grow: 1; /* para que el texto ocupe el espacio disponible */
+}
+
+
+button{
+    font-size: 20px;
+}
+
+

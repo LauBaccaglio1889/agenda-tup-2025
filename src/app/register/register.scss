@@ -1,0 +1,91 @@
+
+#container.card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px 35px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(32, 33, 36, 0.28);
+  border-radius: 12px;
+  font-family: "Roboto", Arial, sans-serif;
+  color: #202124;
+}
+
+
+#container.card > h1 {
+  font-weight: 400;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #202124;
+}
+
+
+#container.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+#container.card label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #3c4043;
+  font-weight: 500;
+}
+
+
+#container.card input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1.8px solid #dadce0;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+#container.card input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 6px rgba(26, 115, 232, 0.4);
+  outline: none;
+}
+
+
+#container.card button {
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#container.card button:hover {
+  background-color: #155ab6;
+}
+
+
+#container.card p.error {
+  color: #d93025;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+
+#container.card p a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#container.card p a:hover {
+  text-decoration: underline;
+}
+
+

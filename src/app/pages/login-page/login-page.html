@@ -1,23 +1,38 @@
 
 <div class="login-container">
 
-    <div class="login">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-        <h2>Login</h2>
-            <label for="email">Correo electrónico</label>
-            <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email" placeholder="Correo">
-             @if (email.invalid && !email.pristine) {
-      <p class="error">Debe colocar un correo electrónico.</p>
-    } 
-            <label for="password">Contraseña</label>
-            <input id="password" name="password" type="password" ngModel #password="ngModel" required="true" minlength="4" autocomplete="current-password" placeholder="Contraseña">
-            <button  [disabled]="loginForm.invalid">Iniciar sesión</button>
-            @if (errorLogin) {
-    <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
-  } 
-            <p>No tenés cuenta? <a routerLink="/register">Registrate</a>
-        </form>
-        
-    </div>
+  <section class="login-card">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <h2>Login</h2>
+      
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input 
+          id="email" name="email" type="email" ngModel #email="ngModel" required autocomplete="email" placeholder="Correo">
+        @if (email.invalid && !email.pristine) {
+          <p class="error">Debe colocar un correo electrónico.</p>
+        }
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          id="password" name="password" type="password" ngModel #password="ngModel" required minlength="4" autocomplete="current-password" placeholder="Contraseña">
+      </div>
+
+      <button [disabled]="loginForm.invalid">Iniciar sesión</button>
+
+      @if (errorLogin) {
+        <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
+      }
+
+      <p class="signup-link">
+        No tenés cuenta? <a routerLink="/register">Registrate</a>
+      </p>
+    </form>
+  </section>
 
 </div>
+
+
+

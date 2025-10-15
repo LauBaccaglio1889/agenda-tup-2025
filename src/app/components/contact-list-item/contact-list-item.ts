@@ -12,7 +12,7 @@ import { Toast } from '../../utils/modals/modals';
   styleUrl: './contact-list-item.scss'
 })
 export class ContactListItem {
-  index = input.required<number>();
+   index = input.required<number>();
   contacto = input.required<Contact>();
 
   contactsService = inject(ContactsService)
@@ -24,7 +24,7 @@ export class ContactListItem {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
-      confirmButtonColor: "var(--color-error)",
+      confirmButtonColor: "blue",
       cancelButtonText: "Cancelar",
       confirmButtonText: `Borrar definitivamente`
     }).then((result) => {
