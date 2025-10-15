@@ -1,37 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactListItem } from '../../components/contact-list-item/contact-list-item';
-import { Contact } from '../../interfaces/contacto';
+import { ContactsService } from '../../services/contacts-service';
+import { auth } from '../../services/auth';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list-page',
-  imports: [RouterModule,ContactListItem],
+  imports: [RouterModule,ContactListItem,FormsModule],
   templateUrl: './contact-list-page.html',
   styleUrl: './contact-list-page.scss'
 })
-export class ContactListPage {
 
-  contactos:Contact[] = [{
-    firstName: 'Gonzalo',
-    lastName: 'Bechara',
-    address: 'San Lorenzo',
-    email: 'gbechara@austral.edu.ar',
-    number: '123456',
-    company: 'Austral',
-    id: 0,
-    isFavorite: false,
-    description: 'Hola',
-    image: ''
-  }
-  ]
-  logueado = true;
 
-  desloguear(){
-    this.logueado = false;
+export class ContactListPage implements OnInit {
+  ngOnInit(): void {
+    this.contactsService.getContacts();
   }
 
-  loguear(){
-    this.logueado = true;
-  }
+  contactsService = inject(ContactsService)
+  authService = inject(auth)
+
 
 }
+
+
+  
+

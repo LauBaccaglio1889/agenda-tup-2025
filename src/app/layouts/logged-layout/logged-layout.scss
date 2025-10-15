@@ -1,3 +1,16 @@
 nav{
-    background-color: lightblue;
+    background-color:#444746;
+}
+
+a{
+    color: var(--color-primary-background);
+}
+
+.active{
+    font-weight: bold;
+}
+
+section{
+    display: flex;
+    height: 100vh;
 }

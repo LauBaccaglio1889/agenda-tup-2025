@@ -1,16 +1,9 @@
-<p>contact-list-page works!</p>
-<a routerLink="/login">Log in</a>
-
-@for (contacto of contactos; track $index) {
+<h1>Contactos</h1>
+@for (contacto of contactsService.contacts; track $index) {
+  <a [routerLink]="['/contacts', contacto.id]">
     <app-contact-list-item [contacto]="contacto" [index]="$index" />
+  </a>
 } @empty {
-    <p>No hay contactos</p>
+<p>No hay contactos, <a routerLink="/contacts/new">agregá uno</a>.</p>
 }
-<div [class.importante]="logueado === true">
-    <p>Sesión</p>
-    @if(logueado){
-        <button (click)="desloguear()">Cerrar sesión</button>
-    } @else {
-        <button (click)="loguear()">Iniciar sesión</button>
-    }
-</div>
+<a routerLink="/contacts/new">Nuevo contacto +</a>

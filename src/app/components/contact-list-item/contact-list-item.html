@@ -2,4 +2,6 @@
     @if(contacto().isFavorite){
         ⭐
     }
+    <a [routerLink]="['/contacts',contacto().id,'edit']">Editar</a>
+    <button (click)="showDeleteModal()">Borrar</button>
 </p>
