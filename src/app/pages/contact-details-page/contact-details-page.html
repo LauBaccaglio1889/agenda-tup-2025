@@ -1,19 +1,25 @@
-@if(cargandoContacto){
-  <p>Cargando contacto...</p>
-} @else if(!contacto) {
-  <p>No se encontró el contacto</p>
-} @else {
-  <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-  <p>Email: {{contacto.email}}</p>
-  <p>Teléfono: {{contacto.number}}</p>
-@if (contacto.isFavorite) {
-  <p>⭐</p>
-  <button (click)="toggleFavorite()">Desmarcar favorito</button>
-} @else {
-  <button (click)="toggleFavorite()">Marcar como favorito</button>
-}
-  <p>
-    <a [routerLink]="['/contacts',idContacto(),'edit']">Editar</a>
-  </p>
-  <button (click)="deleteContact()">Eliminar</button>
-}
+<div class="contact-detail-card">
+  @if(cargandoContacto){
+    <p class="loading">Cargando contacto...</p>
+  } 
+  @else if(!contacto) {
+    <p class="not-found">No se encontró el contacto</p>
+  } 
+  @else {
+    <h1 class="contact-name">{{contacto!.firstName}} {{contacto!.lastName}}</h1>
+    <p class="contact-info">Email: {{contacto.email}}</p>
+    <p class="contact-info">Teléfono: {{contacto.number}}</p>
+
+    @if (contacto.isFavorite) {
+      <p class="favorite-star">⭐</p>
+      <button class="btn-favorite" (click)="toggleFavorite()">Desmarcar favorito</button>
+    } @else {
+      <button class="btn-favorite" (click)="toggleFavorite()">Marcar como favorito</button>
+    }
+
+    <p>
+      <a class="btn-edit" [routerLink]="['/contacts',idContacto(),'edit']">Editar</a>
+    </p>
+    <button class="btn-eliminar" (click)="deleteContact()">Eliminar</button>
+  }
+</div>

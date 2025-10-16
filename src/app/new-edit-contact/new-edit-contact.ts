@@ -1,4 +1,5 @@
 import { Component,inject , input , OnInit, viewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ContactsService } from '../services/contacts-service';
 import { Router } from '@angular/router';
@@ -10,12 +11,14 @@ import { Spinner } from "../spinner/spinner";
 
 @Component({
   selector: 'app-new-edit-contact',
+  standalone: true,
   imports: [FormsModule, Spinner],
   templateUrl: './new-edit-contact.html',
   styleUrl: './new-edit-contact.scss'
 })
 
  export class NewEditContact implements OnInit {
+  route = inject(ActivatedRoute);
   contactsService = inject(ContactsService);
   router = inject(Router)
   errorEnBack = false;
@@ -25,9 +28,11 @@ import { Spinner } from "../spinner/spinner";
   solicitudABackEnCurso = false;
 
   async ngOnInit() {
-    if(this.idContacto())
-   {
-    const contacto:Contact|null = await this.contactsService.getContactById(this.idContacto()!);
+    const routeId = this.route.snapshot.paramMap.get('idContacto');
+    const id = this.idContacto() || routeId;
+    const idNum = (id !== null && id !== undefined) ? Number(id) : undefined;
+    if(idNum){
+    const contacto:Contact|null = await this.contactsService.getContactById(idNum!);
     if(contacto){
       this.ContactoBack = contacto;
       this.form()?.setValue({
@@ -36,7 +41,7 @@ import { Spinner } from "../spinner/spinner";
         email:contacto.email,
         firstName:contacto.firstName,
         image:contacto.image,
-        isFavourite:contacto.isFavorite,
+        isFavorite:contacto.isFavorite,
         lastName:contacto.lastName,
         number:contacto.number
       })
@@ -46,6 +51,9 @@ import { Spinner } from "../spinner/spinner";
 
 
 async  handleFormSubmission(form:NgForm){
+  const routeId = this.route.snapshot.paramMap.get('idContacto');
+  const id = this.idContacto() || routeId;
+    const idNum = (id !== null && id !== undefined) ? Number(id) : undefined;
   this.errorEnBack = false;
   const nuevoContacto: NewContact ={
     firstName: form.value.firstName,
@@ -60,8 +68,8 @@ async  handleFormSubmission(form:NgForm){
   
   this.solicitudABackEnCurso = true;
   let res;
-  if(this.idContacto()){
-    res = await  this.contactsService.editContact({...nuevoContacto,id:this.ContactoBack!.id});
+  if(idNum){
+    res = await  this.contactsService.editContact({...nuevoContacto,id:idNum ?? this.ContactoBack!.id});
   } else{
     res = await this.contactsService.createContact(nuevoContacto);
   }

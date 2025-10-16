@@ -7,6 +7,7 @@ import { Toast } from '../../utils/modals/modals';
 
 @Component({
   selector: 'app-contact-list-item',
+  standalone: true,
   imports: [RouterModule],
   templateUrl: './contact-list-item.html',
   styleUrl: './contact-list-item.scss'

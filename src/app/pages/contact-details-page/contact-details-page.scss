@@ -1,0 +1,76 @@
+.contact-detail-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;   /* ancho máximo */
+  min-width: 300px;   /* ancho mínimo si quieres */
+  min-height: 250px;  /* altura mínima para que no se achique */
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  
+
+  .loading, .not-found {
+    font-style: italic;
+    color: #777;
+  }
+
+  .contact-name {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .contact-info {
+    margin: 10px 0px;
+    color: #555;
+    
+  }
+
+  .favorite-star {
+    font-size: 20px;
+    color: #ffeb3b;
+    margin-bottom: 5px;
+  }
+
+  button, a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .btn-favorite {
+    background-color: #ffeb3b;
+    color: #333;
+    border: 1px solid #fbc02d;
+
+    &:hover {
+      background-color: #fbc02d;
+    }
+  }
+
+  .btn-edit {
+    background-color: #2196f3;
+    color: white;
+
+    &:hover {
+      background-color: #1976d2;
+    }
+  }
+
+  .btn-eliminar {
+    background-color: #474343;
+    color: white;
+
+    &:hover {
+      background-color: #f44336;
+    }
+  }
+}

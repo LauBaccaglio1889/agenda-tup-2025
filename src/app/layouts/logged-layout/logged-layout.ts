@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-logged-layout',
+  standalone: true,
   imports: [RouterOutlet,RouterModule],
   templateUrl: './logged-layout.html',
   styleUrl: './logged-layout.scss'
@@ -22,11 +23,10 @@ export class LoggedLayout {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
-      confirmButtonColor: "var(--color-error)",
+      confirmButtonColor: "red",
       cancelButtonText: "Cancelar",
       confirmButtonText: `Cerrar sesión`
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.authService.logout();
       } 

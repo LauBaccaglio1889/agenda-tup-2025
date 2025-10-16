@@ -6,6 +6,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
+  standalone: true,
   imports: [RouterModule,FormsModule],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss'

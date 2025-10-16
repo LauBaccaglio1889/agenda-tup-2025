@@ -1,7 +1,7 @@
 .contact-item{
     
     display: flex;
-  justify-content: space-between; /* para separar texto y botón */
+  justify-content: space-between; 
   align-items: center; 
   padding: 12px 16px;
   gap: 10px; 
@@ -11,7 +11,7 @@
   background-color: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: pointer; /* da la sensación de que es clickeable */
+  cursor: pointer; 
   width: 450px;
   
 }
@@ -23,14 +23,40 @@
 
 p{
     margin-right: 5px;
-   margin-right: 10px; /* más espacio al texto */
-  margin: 0; /* para eliminar márgenes no deseados */
-  flex-grow: 1; /* para que el texto ocupe el espacio disponible */
+   margin-right: 10px; 
+  margin: 0; 
+  flex-grow: 1; 
 }
 
 
 button{
-    font-size: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    
+}
+
+
+.btn-eliminar {
+  display: flex;
+  align-items: center;
+  gap: 5px;                /* espacio entre icono y texto */
+  padding: 5px 10px;
+  background-color: #474343; /* rojo normal */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* animación suave */
+}
+
+.btn-eliminar i {
+  font-size: 18px;
+  transition: color 0.3s; 
+}
+
+
+.btn-eliminar:hover {
+  background-color: #d32f2f; 
 }
 
 

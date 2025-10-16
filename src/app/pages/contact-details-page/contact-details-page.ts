@@ -6,6 +6,7 @@ import { Contact } from '../../interfaces/contacto';
 
 @Component({
   selector: 'app-contact-details-page',
+  standalone: true,
   imports: [RouterModule],
   templateUrl: './contact-details-page.html',
   styleUrl: './contact-details-page.scss'
